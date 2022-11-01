@@ -5,6 +5,11 @@ using System.Collections.Generic;
 
 class Program {
 
+    /*static double normalDistribution(double mean, double SD, double goals) {
+        // a separate method for calculating the percentage chance of a win, draw or loss using the normal distribution formula
+        return NormalDistribution((goals - mean) / SD);
+    }*/
+
     static void Arsenal(bool homeGame, string opposition) {
         // first create a string array of all arsenal results from the .txt file
         string[] fixtureList = File.ReadAllLines("arsenalResults.txt");
@@ -26,24 +31,48 @@ class Program {
             }
         }
 
-        // now to create an average scoreline from all previous head to head results with opposition
-        double homeGoals = 0;
-        double awayGoals = 0;
+        // now to find all the goal differences between both sides and make a mean average of them
+        int homeGoals = 0;
+        int awayGoals = 0;
+        double meanScoreDifference;
         foreach (string game in previousHeadToHeads) {
-            homeGoals += Convert.ToDouble(Convert.ToInt32(game[4].ToString()));
-            awayGoals += Convert.ToDouble(Convert.ToInt32(game[6].ToString()));
+            Console.WriteLine(game);
+            homeGoals += Convert.ToInt32(game[4].ToString());
+            awayGoals += Convert.ToInt32(game[6].ToString());
+        }
+        if (homeGame) {
+            meanScoreDifference = Convert.ToDouble((homeGoals/previousHeadToHeads.Count()) - (awayGoals/previousHeadToHeads.Count()));
+        } else {
+            meanScoreDifference = Convert.ToDouble((awayGoals/previousHeadToHeads.Count()) - (homeGoals/previousHeadToHeads.Count()));
+        }
+        
+        // now we have the mean, time to calculate the standard deviation and distance to mean - these are needed for the normal distribution formula
+        double distanceToMean = 0;
+        foreach (string game in previousHeadToHeads) {
+            if (homeGame) {
+                distanceToMean += Math.Pow((Convert.ToInt32(game[4].ToString()) - Convert.ToInt32(game[6].ToString())) - meanScoreDifference, 2);
+            } else {
+                distanceToMean += Math.Pow((Convert.ToInt32(game[6].ToString()) - Convert.ToInt32(game[4].ToString())) - meanScoreDifference, 2);
+            }
+        }
+        double standardDeviation = Math.Pow((distanceToMean/previousHeadToHeads.Count()), 0.5);
+
+        // Final output of percentages
+        Console.WriteLine("The average goal difference between the two sides is: " + meanScoreDifference + "\nwith a standard deviation of: " + standardDeviation);
+        if (meanScoreDifference == 0 ) {
+            Console.WriteLine("This indicates the game will likely be a draw");
+        } if (meanScoreDifference > 0) {
+            Console.WriteLine("This indicates the game will likely be a win");
+        } else {
+            Console.WriteLine("This indicates the game will likely be a loss");
         }
 
-        if (homeGame) {
-            Console.WriteLine("Average scoreline: ARS " + (homeGoals/previousHeadToHeads.Count()) + "-" + (awayGoals/previousHeadToHeads.Count()) + " " + opposition);
-        } else {
-            Console.WriteLine("Average scoreline: " + opposition + " " + (homeGoals/previousHeadToHeads.Count()) + "-" + (awayGoals/previousHeadToHeads.Count()) + "  ARS");
-        }
+
         
 
     }
 
     public static void Main(String[] args) {
-        Arsenal(true, "TOT");
+        Arsenal(false, "MCI");
     }
 }

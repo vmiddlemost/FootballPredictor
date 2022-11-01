@@ -1,5 +1,4 @@
-- Instead of average scoreline, average the goal difference between both teams and range of 
-difference between teams (standard deviation?) to come up with percentage chances for a loss, draw and win
+- Put in a normal distribution formula in so I can give accurate(ish) percentages for a win/draw/loss
 
 - Add both how many wins, draws and losses the team has had this season so far to the formula
 

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vmidd\\OneDrive\\Documents\\Visual Studio Code\\Visual Studio Code.csproj",
+      "projectUniqueName": "C:\\Users\\vmidd\\OneDrive\\Documents\\Football Predictor\\Visual Studio Code.csproj",
       "projectName": "Visual Studio Code",
-      "projectPath": "C:\\Users\\vmidd\\OneDrive\\Documents\\Visual Studio Code\\Visual Studio Code.csproj",
+      "projectPath": "C:\\Users\\vmidd\\OneDrive\\Documents\\Football Predictor\\Visual Studio Code.csproj",
       "packagesPath": "C:\\Users\\vmidd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vmidd\\OneDrive\\Documents\\Visual Studio Code\\obj\\",
+      "outputPath": "C:\\Users\\vmidd\\OneDrive\\Documents\\Football Predictor\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\vmidd\\AppData\\Roaming\\NuGet\\NuGet.Config"
