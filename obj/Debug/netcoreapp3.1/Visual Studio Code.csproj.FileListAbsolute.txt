@@ -24,3 +24,5 @@ C:\Users\vmidd\OneDrive\Documents\Football Predictor\obj\Debug\netcoreapp3.1\Vis
 C:\Users\vmidd\OneDrive\Documents\Football Predictor\obj\Debug\netcoreapp3.1\Visual Studio Code.dll
 C:\Users\vmidd\OneDrive\Documents\Football Predictor\obj\Debug\netcoreapp3.1\Visual Studio Code.pdb
 C:\Users\vmidd\OneDrive\Documents\Football Predictor\obj\Debug\netcoreapp3.1\Visual Studio Code.genruntimeconfig.cache
+C:\Users\vmidd\OneDrive\Documents\Football Predictor\bin\Debug\netcoreapp3.1\MathNet.Numerics.dll
+C:\Users\vmidd\OneDrive\Documents\Football Predictor\obj\Debug\netcoreapp3.1\Visual Studio Code.csproj.CopyComplete

@@ -2,13 +2,17 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using MathNet.Numerics.Distributions;
 
 class Program {
 
-    /*static double normalDistribution(double mean, double SD, double goals) {
+    static int normalDistribution(double mean, double SD, double goals) {
         // a separate method for calculating the percentage chance of a win, draw or loss using the normal distribution formula
-        return NormalDistribution((goals - mean) / SD);
-    }*/
+        var normal = new Normal(mean, SD);
+        double probability = normal.CumulativeDistribution(goals);
+        //return 100 * probability;
+        return Convert.ToInt32(100 * probability);
+    }
 
     static void Arsenal(bool homeGame, string opposition) {
         // first create a string array of all arsenal results from the .txt file
@@ -55,17 +59,14 @@ class Program {
                 distanceToMean += Math.Pow((Convert.ToInt32(game[6].ToString()) - Convert.ToInt32(game[4].ToString())) - meanScoreDifference, 2);
             }
         }
-        double standardDeviation = Math.Pow((distanceToMean/previousHeadToHeads.Count()), 0.5);
+        double standardDeviation = Math.Sqrt((distanceToMean/previousHeadToHeads.Count()));
+
 
         // Final output of percentages
         Console.WriteLine("The average goal difference between the two sides is: " + meanScoreDifference + "\nwith a standard deviation of: " + standardDeviation);
-        if (meanScoreDifference == 0 ) {
-            Console.WriteLine("This indicates the game will likely be a draw");
-        } if (meanScoreDifference > 0) {
-            Console.WriteLine("This indicates the game will likely be a win");
-        } else {
-            Console.WriteLine("This indicates the game will likely be a loss");
-        }
+        Console.WriteLine("The following numbers are the probability the game will be a:\nWin: " + (100 - normalDistribution(meanScoreDifference, standardDeviation, 0.5)) + "%"
+         + "\nDraw: " + (normalDistribution(meanScoreDifference, standardDeviation, 0.5) - normalDistribution(meanScoreDifference, standardDeviation, -0.5)) + "%"
+         + "\nLoss: " + (normalDistribution(meanScoreDifference, standardDeviation, -0.5)) + "%");
 
 
         
@@ -73,6 +74,6 @@ class Program {
     }
 
     public static void Main(String[] args) {
-        Arsenal(false, "MCI");
+        Arsenal(false, "CHE");
     }
 }
