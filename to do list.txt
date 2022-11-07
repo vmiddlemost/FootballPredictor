@@ -1,6 +1,4 @@
-- Put in a normal distribution formula in so I can give accurate(ish) percentages for a win/draw/loss
-
-- Add both how many wins, draws and losses the team has had this season so far to the formula
+- Replace results in arsenalResults.txt with xG results (https://understat.com/team/Arsenal/2022)
 
 - Add previous 5 or 6 game results (form) into the formula
 

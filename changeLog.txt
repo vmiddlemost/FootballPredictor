@@ -1,0 +1,18 @@
+28/10/2022
+- Built core of the program and just calculated the average score difference and standard deviation for all oppositional teams to Arsenal in the premier league
+
+02/11/2022
+- Found a normal distribution package online to use to give my code percentage chances of a win, loss and draw
+- Calculate win as having more than 0.5 goals difference, a draw with being between -0.5 and 0.5 goals difference and a loss being below -0.5 goals difference
+- Found weird edge cases like away games at Watford being calculated at a 100% win rate, despite both previous head to heads having a goal difference of just 1
+
+03/11/2022
+- Discovered the Watford edge case to be because both games were won by just one goal, both the game's distance to the mean and the overrall mean are 1, making 
+the standard deviation 0 for both games (as this is how standard deviation is calculated)
+- Not entirely sure how to fix this issue, so I've added in an if statement to help with this edge case (if standard deviation == 0, standard deviation = 0.8)
+- Found another weird case where due to Arsenal having really good past results against Newcastle at home, they're being calculated to have a 100% win rate for
+that fixture. This won't do, so to help combat the problem for the time being I've doubled the standard deviation for all games
+
+04/11/2022
+- To give the percentages more realism, I've added a draw percentage method which takes from a list of premier league teams' average chance to draw a game
+over the past season and a half and added that into the overall formula (Arsenal rarely draw games so the calculations now reflect this more)
