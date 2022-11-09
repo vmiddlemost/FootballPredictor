@@ -16,3 +16,9 @@ that fixture. This won't do, so to help combat the problem for the time being I'
 04/11/2022
 - To give the percentages more realism, I've added a draw percentage method which takes from a list of premier league teams' average chance to draw a game
 over the past season and a half and added that into the overall formula (Arsenal rarely draw games so the calculations now reflect this more)
+
+08/11/2022
+- I've done an overhaul of the previous head to head results, where I now take the xG (expected goals) stats from each of the past 3 season's games. This is to
+help add realism as xG stats are a really good inidcator of how close a game was. Actual scorelines can mislead in football as a goal can come from anywhere and
+can be enough to win a match so using xG should give a better prediction.
+- I'm using understat.com's xG calculations for this
