@@ -134,10 +134,7 @@ class Program {
     }
 
     public static void Main(String[] args) {
-        Arsenal(true, "TOT");
-        Arsenal(false, "MAN");
-        Arsenal(true, "NEW");
-        Arsenal(false, "WAT");
-        Arsenal(true, "CHE");
+        Arsenal(true, "WOL");
+        //Arsenal()
     }
 }

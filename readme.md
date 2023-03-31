@@ -11,3 +11,7 @@ Arsenal takes in two arguments, the first being a bool for whether the fixture i
 The second argument being a string which indicates which team Arsenal will face in the fixture you want the probability for.
 It will only take in specific string arguments which are all 3 letters long, for eg. Tottenham Hotspurs = "TOT", West Ham United = "WHU", Manchester City = "MCI".
 Just edit the Main method to whatever you'd like and run the code in an IDE of your choice, and if Arsenal have faced them in the premier league in the past 3 seasons, the code will output probabilities for the result.
+
+
+31/03/2023
+I have begun working on creating a UI for this program. I've begun the codecademy course for React as this is the language I'm choosing my UI to be made in.
